@@ -1,0 +1,46 @@
+intro:
+Let's say we bought a lottery ticket for 2$. We will win 10$ with probability 10%, and 20$ with p-bility 2%. On average, it gives us 0.1·10+0.02·20=1.4, so we are worse off after buying the ticket. The computed average is called the expected value.
+
+The expected value (EV, expectation) is the average value of an event/experiment. For example, EV of the number of pips rolled on a 6-sided die is 3.5:
+
+ = 1/6*1 + 1/6*2 + 1/6*3 + 1/6*4 + 1/6*5 + 1/6*6  = 3.5
+
+
+
+
+
+theory:
+
+Linearity of EV (super important theorem):
+E(x+y)=E(x)+E(y)
+
+Two events are independent if the result of one doesn't affect the distribution of p-bilities of the other. Results of throwing two dice (or throwing one die twice) are independent, but the amount of rain and the strength of wind are dependent. The linearity is always true:
+E(X+Y)=E(X)+E(Y)
+
+The other important formula is E(X·Y)=E(X)·E(Y) but it's true only for INDEPENDENT events. 
+
+
+
+
+
+
+
+problems:
+
+Aces We choose 10 cards(picked together) at random from a standard deck of 52 cards. Find EV of the number of aces.
+
+altough each card is influenced by another card, we are asked about expected value,
+so each card can be seen as an indiviual event 
+E(card1equalsace + card2==ace +  ... card10==ace )
+
+is same as 
+
+E(card1euqalace) + E(card2==ace) independently
+
+== 1/13*10 = 10/13
+
+Inflation The price of a tv is 1000$. Each of the next N days, the prices goes up by 5$ or 10$ (each with p-bility 50%). Find EV of the final price.
+Bonus: What if it goes up by 1% or 2% each day?
+
+Max of N You roll a 6-sided die N times. Find EV of the biggest score.
+A few possible solutions.

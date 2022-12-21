@@ -1,0 +1,68 @@
+Aho-Co
+
+Stanford - Lec - 02 
+
+Some Terminology:
+
+T is called the text string and P₁, ..., Pₖ are
+called pattern strings
+
+Let m = |T|, the length of the string to be
+searched.
+● Let n = |P₁| + |P₂| + ... + |Pₖ| be the total
+length of all the pattern strings.
+● Let Lmax be the length of the longest pattern
+string.
+● Assume that strings are drawn from an
+alphabet Σ, where |Σ| is some constant.
+
+
+Problem : search for all occurences of all patterns in the text
+
+BF : For each position in T:
+		For each pattern string Pᵢ:
+			Check if Pᵢ appears at that position.
+
+Trie searching: O(n) (pre-processing trie making)  + O(mLmax)
+
+
+
+Suffix Links
+● A suffix link (sometimes called a failure link) is
+a red edge from a trie node corresponding to
+string α to the trie node corresponding to a string
+ω such that ω is the longest proper suffix of α that
+is still in the trie.
+● Intuition: When we hit a part of the string where
+we cannot continue to read characters, we fall
+back by following suffix links to try to preserve as
+much context as possible.
+● Every node in the trie, except the root (which
+corresponds to the empty string ε), will have a
+suffix link associated with it.
+
+Issues with only suffix links:
+
+● Our heavily optimized string searcher no
+longer starts searching from each
+position in the string.
+● As a result, we now might forget to
+output matches in certain cases
+
+Adding outpur link : 
+
+this blue arrow is called an output
+link. Whenever we visit this a node,
+we'll output the string represented by
+the node at the end of the blue arrow till blue arrow ends
+
+
+
+To account for this, let z denote the number of matches
+reported by our algorithm.
+● The runtime of the match phase is then Θ(m + z), with the
+m term coming from the string scanning and the z term
+coming from the matches.
+● You sometimes hear algorithms whose runtime depends on how
+much output is generated referred to as output-sensitive
+algorithms.
